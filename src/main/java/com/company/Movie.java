@@ -11,48 +11,54 @@ public class Movie {
     private double budget;
     private double moneySpent;
     private double moneyEarned;
-    private double profit;
+    private static double profit;
 
-    public Movie(String genre, Director director, List<Actor> actors, List<Crew> crew, double budget, double moneySpent, double moneyEarned, double profit) {
+    public Movie(String genre, Director director, List<Actor> actors, List<Crew> crew, double budget) {
         this.genre = genre;
         this.director = director;
         this.actors = actors;
         this.crew = crew;
         this.budget = budget;
-        this.moneySpent = moneySpent; //
-        this.moneyEarned = moneyEarned; //
-        this.profit = profit; //
+        this.moneySpent = 0;
+        this.moneyEarned = 0;
+        this.profit = 0;
     }
 
-    // TODO method to update money earned
+    // method to update gross money earned
+    public void updateGrossMoneyEarned(double moneyEarned) {
+        /** This function is used to pass the gross money earned for a movie. This method updated the
+         * moneyEarned parameter. Note: moneyEarned for movie is how much it made in sales. This is
+         * different from a Person object's earned. **/
+        this.moneyEarned = moneyEarned;
+    }
 
     public void calculateProfit() {
         profit = budget - moneySpent + moneyEarned;
     }
 
+    // TODO fix payday for director
     public void Payday() {
-        // pay director base pay
-        director.earned += director.pay;
+        /** This function is used to pay everyone who was involved in the movie. It updates the moneySpent property. **/
+        // pay director
+        director.updateMoneyEarned();
+
         // pay director 1% royalty
         director.earned += profit * .01;
-
         moneySpent += director.earned;
 
         // pay actors
         for (Actor actor : actors) {
-            actor.earned += actor.pay;
+            actor.updateMoneyEarned();
             moneySpent += actor.earned;
         }
 
         // pay crew
         for (Crew member : crew) {
-            if (member instanceof PA) {
-                member.earned += member.pay * ((PA) member).getHoursWorked();
-            } else {
-                member.earned += member.pay;
-            }
+            member.updateMoneyEarned();
             moneySpent += member.earned;
         }
+
+
     }
 
     public String getGenre() {
@@ -111,7 +117,7 @@ public class Movie {
         this.moneyEarned = moneyEarned;
     }
 
-    public double getProfit() {
+    public static double getProfit() {
         return profit;
     }
 

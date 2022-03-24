@@ -3,8 +3,8 @@ package com.company;
 public class Actor extends Person {
     private String role;
 
-    public Actor(String firstName, String lastName, double pay, double earned, String role) {
-        super(firstName, lastName, pay, earned);
+    public Actor(String firstName, String lastName, double pay, String role) {
+        super(firstName, lastName, pay);
         this.role = role;
     }
 

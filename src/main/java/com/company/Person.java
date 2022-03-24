@@ -6,15 +6,15 @@ public class Person {
     protected double pay;
     protected double earned;
 
-    public Person(String firstName, String lastName, double pay, double earned) {
+    public Person(String firstName, String lastName, double pay) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.pay = pay;
-        this.earned = earned;
+        this.earned = 0;
     }
 
-    // TODO fix this method
     public void updateMoneyEarned() {
+        /** When this method is called, a person's pay is added to their money earned. **/
         earned += pay;
     }
 

@@ -3,8 +3,8 @@ package com.company;
 public class Crew extends Person {
     protected String department;
 
-    public Crew(String firstName, String lastName, double pay, double earned, String department) {
-        super(firstName, lastName, pay, earned);
+    public Crew(String firstName, String lastName, double pay, String department) {
+        super(firstName, lastName, pay);
         this.department = department;
     }
 

@@ -1,7 +1,14 @@
 package com.company;
 
 public class Director extends Crew {
-    public Director(String firstName, String lastName, double pay, double earned, String department) {
-        super(firstName, lastName, pay, earned, department);
+    private double royalties;
+    public Director(String firstName, String lastName, double pay, String department) {
+        super(firstName, lastName, pay, department);
+    }
+
+    // TODO create function to update royalties
+    public void updateRoyalty() {
+        royalties = Movie.getProfit() * .01;
+        earned += royalties;
     }
 }
