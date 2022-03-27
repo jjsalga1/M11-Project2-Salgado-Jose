@@ -24,7 +24,6 @@ public class Movie {
         this.profit = 0;
     }
 
-    // method to update gross money earned
     public void updateGrossMoneyEarned(double moneyEarned) {
         /** This function is used to pass the gross money earned for a movie. This method updated the
          * moneyEarned parameter. Note: moneyEarned for movie is how much it made in sales. This is
@@ -33,34 +32,32 @@ public class Movie {
     }
 
     public void calculateProfit() {
-        profit = budget - moneySpent + moneyEarned;
+        /** This function uses a formula so calculate the movie's profit. After the profit is calculated,
+         * the movie's director is paid their 1% royalty from the movie profits. **/
+        this.profit = budget - moneySpent + moneyEarned;
+        director.updateRoyaltyEarned();
     }
 
-    // TODO fix payday for director
     public void Payday() {
         /** This function is used to pay everyone who was involved in the movie. It updates the moneySpent property. **/
         // pay director
         director.updateMoneyEarned();
-
-        // pay director 1% royalty
-        director.earned += profit * .01;
-        moneySpent += director.earned;
+        this.moneySpent += director.earned;
 
         // pay actors
         for (Actor actor : actors) {
             actor.updateMoneyEarned();
-            moneySpent += actor.earned;
+            this.moneySpent += actor.earned;
         }
 
         // pay crew
         for (Crew member : crew) {
             member.updateMoneyEarned();
-            moneySpent += member.earned;
+            this.moneySpent += member.earned;
         }
-
-
     }
 
+    // Getters and setters
     public String getGenre() {
         return genre;
     }

@@ -11,7 +11,7 @@ public class App {
         Crew crew2 = new Crew("Nallely", "Hermosillo", 3000.00, "Makeup");
         Actor actor1 = new Actor("Ryan", "Reynolds", 10000.00, "Superhero");
         Actor actor2 = new Actor("Dwayne", "Johnson", 10000.00, "Villain");
-        Actor actor3 = new Actor("Peter", "Anteater", 1.00, "Mascot");
+        Actor actor3 = new Actor("Peter", "Anteater", 10000.00, "Mascot");
         PA pa = new PA("Peter", "Prod", 50.00, "Cameras", 40);
         Director director = new Director("Michael", "Bay", 40000.00, "Film");
 
@@ -38,7 +38,7 @@ public class App {
         // Demonstrate payday method
         System.out.format("Money earned by PA: $%.2f\n", pa.getEarned());
         System.out.format("Money spent from budget: $%.2f\n", movie.getMoneySpent());
-        System.out.format("Movie profit: $%.2f\n", movie.getProfit());
-        System.out.format("Director royalty: $%.2f\n", movie.getProfit() * .01);
+        System.out.format("Movie profit: $%.2f\n", Movie.getProfit());
+        System.out.format("Director royalty: $%.2f\n", director.getRoyalty());
     }
 }

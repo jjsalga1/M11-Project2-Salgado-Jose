@@ -8,6 +8,7 @@ public class Actor extends Person {
         this.role = role;
     }
 
+    // Getters and setters
     public String getRole() {
         return role;
     }

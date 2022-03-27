@@ -8,6 +8,7 @@ public class Crew extends Person {
         this.department = department;
     }
 
+    // Getters and setters
     public String getDepartment() {
         return department;
     }

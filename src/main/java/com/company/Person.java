@@ -15,9 +15,10 @@ public class Person {
 
     public void updateMoneyEarned() {
         /** When this method is called, a person's pay is added to their money earned. **/
-        earned += pay;
+        this.earned += pay;
     }
 
+    // Getters and setters
     public String getFirstName() {
         return firstName;
     }

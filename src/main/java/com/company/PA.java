@@ -12,9 +12,10 @@ public class PA extends Crew {
     public void updateMoneyEarned() {
         /** This updateMoneyEarned method is overridden because PAs are paid hourly, but it still behaves the
          * same as the base Person class, where pay is added to earned. **/
-        earned += pay * hoursWorked;
+        this.earned += pay * hoursWorked;
     }
 
+    // Getters and setters
     public double getHoursWorked() {
         return hoursWorked;
     }
